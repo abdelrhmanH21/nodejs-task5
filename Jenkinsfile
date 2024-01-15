@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-    //stage('Checkout from Git') {
+    stage('Checkout from Git') {
             steps {
                 git branch: 'main', url: 'https://github.com/abdelrhmanH21/nodejs-task5-.git'
             }
