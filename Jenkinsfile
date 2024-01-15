@@ -26,6 +26,7 @@ pipeline {
             steps {
                 git Checkout
         }
+    }
 
     stage("Sonarqube Analysis") {
             steps {
@@ -50,6 +51,5 @@ pipeline {
             }
         }
 
-  }
- }
+}
 }
