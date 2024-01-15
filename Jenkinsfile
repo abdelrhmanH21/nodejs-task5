@@ -9,7 +9,7 @@ pipeline {
       APP_NAME = "nodejstask5"
       RELEASE = "1.0.0"
       DOCKER_USER = "abdelrhmanh21"
-      DOCKER_PASS = 'DockerHub'
+      DOCKER_PASS = 'dockerhub'
       IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
       IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
   }
@@ -22,11 +22,11 @@ pipeline {
             }
         }
 
-    stage('Checkout from Git') {
+    stage("Checkout from SCM"){
             steps {
-                git Checkout
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/abdelrhmanH21/nodejs-task5'
+            }
         }
-    }
 
     stage("Sonarqube Analysis") {
             steps {
