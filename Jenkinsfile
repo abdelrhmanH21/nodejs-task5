@@ -28,6 +28,21 @@ pipeline {
             }
         }
 
+    stage('Install Dependencies') {
+            steps {
+                sh "npm install"
+            }
+        }
+
+    stage('Run Unit Tests') {
+            steps {
+                script {
+                    sh 'npm test'
+                }
+            }
+        }
+
+
     stage("Sonarqube Analysis") {
             steps {
                 withSonarQubeEnv('SonarQube-Server') {
@@ -44,12 +59,5 @@ pipeline {
                 }
             }
         }
-
-    stage('Install Dependencies') {
-            steps {
-                sh "npm install"
-            }
-        }
-
-}
+    }
 }
